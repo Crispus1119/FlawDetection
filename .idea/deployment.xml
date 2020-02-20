@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="zhou2494@volta.cs.uwlax.edu:22" createEmptyFolders="true">
+    <serverData>
+      <paths name="zhou2494@volta.cs.uwlax.edu:22">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/Network/Servers/lab.cs.uwlax.edu/nfs-homes/zhou2494/Desktop/capstone" local="$PROJECT_DIR$" web="/Network/Servers/lab.cs.uwlax.edu/nfs-homes/zhou2494/Desktop/capstone" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
