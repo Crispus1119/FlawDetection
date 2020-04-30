@@ -7,6 +7,7 @@ from tensorflow.keras import backend as K
 from data_handler.data_generator_rpn import data_generator_rpn
 from tools.config import cfg
 import numpy as np
+import tensorflow_addons as tfa
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
 
@@ -43,6 +44,14 @@ class rpn_net():
         rpn_model.save_weights("rpn_model.h5")
 
 
+# def focal_loss(y_true,y_pred):
+#     alpha=0.25
+#     gamma=2
+#     zeros=tf.zeros_like(y_pred,dtype=y_pred.dtype)
+#     postive=tf.where(y_true>zeros,y_true-y_pred,zeros)
+#     negtive=tf.where(y_true>zeros,zeros,y_pred)
+#     f1_loss=-alpha*(postive**gamma)*tf.math.log(tf.clip_by_value(y_pred,1e-8,1-(1e-8)))-(1-alpha)*(negtive**gamma)*tf.math.log(tf.clip_by_value(1.0-y_pred,1e-8,1-(1e-8)))
+#     return f1_loss
 
 def rpn_loss_cls(y_true, y_pred):
     """
@@ -52,6 +61,9 @@ def rpn_loss_cls(y_true, y_pred):
        :return: the loss of classification
        """
     a=K.binary_crossentropy(y_pred[:, :, :, :], y_true[:, :, :,2*cfg.TRAIN.ANCHOR_NUM:])
+    # loss_function=tfa.losses.SigmoidFocalCrossEntropy()
+    # a=focal_loss(y_pred[:, :, :, :], y_true[:, :, :,2*cfg.TRAIN.ANCHOR_NUM:])
+    # a=tf.keras.losses.SigmoidFocalCrossEntropy(y_pred[:, :, :, :], y_true[:, :, :,2*cfg.TRAIN.ANCHOR_NUM:])
     return K.sum(y_true[:, :, :, :2*cfg.TRAIN.ANCHOR_NUM] * a) /(K.sum(
          1e-4 +y_true[:, :, :, :2*cfg.TRAIN.ANCHOR_NUM])*0.5)
 

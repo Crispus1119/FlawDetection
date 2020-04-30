@@ -7,13 +7,14 @@ import concurrent.futures
 
 """
 the data generator to generate data to feed into network for training basic network for recognition.
+Training process: crop the flaw part and resize to 224*224 and using data to training classification model.
 """
 
 class data_generator():
 
     def __init__(self,batch_size):
-        self.image_data_set = imdb.imdb("trainval")
-        self.valid_data_set= imdb.imdb("test")
+        # self.image_data_set = imdb.imdb("trainval")
+        # self.valid_data_set= imdb.imdb("test")
         self.batch_size=batch_size
         self.roidb=self.prepare_roidb()
         self.batch_num=len(self.image_data_set.roidb)//self.batch_size
@@ -97,7 +98,7 @@ class data_generator():
         image_size = cfg.TRAIN.RESIZE_ROIDB
         # the image of box resize to 224.
         roi_data = np.zeros((data_size, image_size, image_size,3), dtype=np.float32)
-        image_label = np.zeros((data_size, cfg.NUM_CLASSES))
+        image_label = np.zeros((data_size, cfg.NUM_CLASSES),dtype=np.float32)
         for i in range(data_size):
             path = os.path.join(cfg.IMAGESET, roidb[i].get("index")+".jpg")
             image_label[i] = roidb[i].get("class")
@@ -140,5 +141,5 @@ class data_generator():
         for i,j in image_data:
             roi_data.append(i)
             image_label.append(j)
-        return np.array(roi_data), np.array(image_label)
+        return np.array(roi_data,dtype=np.float32), np.array(image_label,dtype=np.float32)
 

@@ -3,42 +3,87 @@ import tensorflow as tf
 from tools.config import cfg
 from tensorflow.compat.v1 import image
 class RoiPooling(tf.keras.layers.Layer):
-    """
-    @:param pool_size: the roi pooling window size
-    @:param num_rois : the number of rois that go through roi_pooling layer
-    """
-    def __init__(self,**kwargs):
-        self.pool_size=cfg.ROI_POOLING_SIZE
-        self.num_rois=cfg.MAX_ROIS
+    """ Implements Region Of Interest Max Pooling
+           for channel-first images and relative bounding box coordinates
+
+           # Constructor parameters
+               pooled_height, pooled_width (int) --
+                 specify height and width of layer outputs
+
+           Shape of inputs
+               [(batch_size, pooled_height, pooled_width, n_channels),
+                (batch_size, num_rois, 4)]
+
+           Shape of output
+               (batch_size, num_rois, pooled_height, pooled_width, n_channels)
+
+       """
+
+    def __init__(self, **kwargs):
+        self.pooled_height = 14
+        self.pooled_width = 14
         super(RoiPooling, self).__init__(**kwargs)
 
-    # Create a trainable weight variable for this layer,but roi pooling do not have weight.
-    def build(self, input_shape):
-        self.nb_channles = input_shape[0][3]
-
     def compute_output_shape(self, input_shape):
-        return (1,self.num_rois,self.pool_size,self.pool_size,self.nb_channles)
+        """ Returns the shape of the ROI Layer output
+        """
+        feature_map_shape, rois_shape = input_shape
+        assert feature_map_shape[0] == rois_shape[0]
+        batch_size = feature_map_shape[0]
+        n_rois = rois_shape[1]
+        n_channels = feature_map_shape[3]
+        return (batch_size, n_rois, self.pooled_height,
+                self.pooled_width, n_channels)
 
     def call(self, inputs, **kwargs):
-        feature_map=inputs[0]
-        rois=inputs[1]
-        roi_output=[]
-        record=0
-        for roi_index in range(self.num_rois):
-            record+=1
-            xmin=rois[0,roi_index,0]
-            ymin=rois[0,roi_index,1]
-            w=rois[0,roi_index,2]
-            h=rois[0,roi_index,3]
-            w = tf.cast(w, 'int32')
-            h = tf.cast(h, 'int32')
-            x = tf.cast(xmin, 'int32')
-            y = tf.cast(ymin, 'int32')
-            roi_map=image.resize_images(feature_map[:, y:y+h, x:x+w, :],(self.pool_size,self.pool_size))
-            roi_output.append(roi_map)
-        # transform list to tensor(4,H,W,channal).
-        result=tf.concat(roi_output,axis=0)
-        # tf.print(result.shape)
-        result=tf.expand_dims(result,axis=0)
-        # tf.print(result.shape)
-        return result
+        """ Maps the input tensor of the ROI layer to its output
+
+            # Parameters
+                x[0] -- Convolutional feature map tensor,
+                        shape (batch_size, pooled_height, pooled_width, n_channels)
+                x[1] -- Tensor of region of interests from candidate bounding boxes,
+                        shape (batch_size, num_rois, 4)
+                        Each region of interest is defined by four relative
+                        coordinates (x_min, y_min, x_max, y_max) between 0 and 1
+            # Output
+                pooled_areas -- Tensor with the pooled region of interest, shape
+                    (batch_size, num_rois, pooled_height, pooled_width, n_channels)
+        """
+
+        def curried_pool_rois(x):
+            return RoiPooling._pool_rois(x[0], x[1],
+                                              self.pooled_height,
+                                              self.pooled_width)
+
+        pooled_areas = tf.map_fn(curried_pool_rois, inputs, dtype=tf.float32)
+
+        return pooled_areas
+
+    @staticmethod
+    def _pool_rois(feature_map, rois, pooled_height, pooled_width):
+        """ Applies ROI pooling for a single image and varios ROIs
+        """
+
+        def curried_pool_roi(roi):
+            return RoiPooling._pool_roi(feature_map, roi,
+                                             pooled_height, pooled_width)
+
+        pooled_areas = tf.map_fn(curried_pool_roi, rois, dtype=tf.float32)
+        return pooled_areas
+
+    @staticmethod
+    def _pool_roi(feature_map, roi, pooled_height, pooled_width):
+        """ Applies ROI pooling to a single image and a single region of interest
+        """
+        xmin=roi[0]
+        xmax=roi[2]
+        ymin=roi[1]
+        ymax=roi[3]
+        w=tf.maximum(1.0,roi[2]-roi[0])
+        h=tf.maximum(1.0,roi[3]-roi[1])
+        w = tf.cast(w, 'int32')
+        h = tf.cast(h, 'int32')
+        x = tf.cast(xmin, 'int32')
+        y = tf.cast(ymin, 'int32')
+        roi_map = image.resize_images(feature_map[y:y + h, x:x + w,:], (14, 14))
+        return roi_map

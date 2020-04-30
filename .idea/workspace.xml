@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0d87b89-c899-4dbc-aff0-d0bc6fe75d2d" name="Default Changelist" comment="" />
+    <list default="true" id="a0d87b89-c899-4dbc-aff0-d0bc6fe75d2d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_handler/data_generator_fpn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_handler/generator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_handler/save_np_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpn_network/rpn_fpn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpn_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/thread_safe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_analyziz/Untitled.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/data_analyziz/Untitled.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_handler/data_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_handler/data_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_handler/data_generator_rpn.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_handler/data_generator_rpn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_handler/imdb.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_handler/imdb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/resnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/network/resnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpn_network/roi_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpn_network/roi_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpn_network/roi_pooling.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpn_network/roi_pooling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpn_network/rpn.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpn_network/rpn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpn_network/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpn_network/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/debug.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/debug.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_frcnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_frcnn.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,7 +31,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/capstone$train_frcnn.coverage" NAME="train_frcnn Coverage Results" MODIFIED="1579898414238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/capstone$train_frcnn.coverage" NAME="train_frcnn Coverage Results" MODIFIED="1583363774088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/capstone$imdb.coverage" NAME="imdb Coverage Results" MODIFIED="1569792768295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_analyziz" />
     <SUITE FILE_PATH="coverage/capstone$data_start.coverage" NAME="data_start Coverage Results" MODIFIED="1569782445431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_analyziz" />
     <SUITE FILE_PATH="coverage/capstone$train_net.coverage" NAME="train_net Coverage Results" MODIFIED="1569792991297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_analyziz" />
@@ -55,42 +77,43 @@
     <session id="96197460">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="45" />
-          <entry key="project.open.time.0" value="3" />
-          <entry key="project.open.time.1" value="8" />
+          <entry key="project.closed" value="94" />
+          <entry key="project.open.time.0" value="4" />
+          <entry key="project.open.time.1" value="10" />
           <entry key="project.open.time.2" value="3" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="15" />
-          <entry key="project.open.time.5" value="16" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="48" />
+          <entry key="project.open.time.3" value="4" />
+          <entry key="project.open.time.4" value="32" />
+          <entry key="project.open.time.5" value="39" />
+          <entry key="project.open.time.6" value="6" />
+          <entry key="project.opened" value="98" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="3" />
+          <entry key="dummy" value="13" />
           <entry key="gitignore" value="6" />
-          <entry key="py" value="46810" />
+          <entry key="py" value="71925" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="46813" />
+          <entry key="PLAIN_TEXT" value="19" />
+          <entry key="Python" value="71928" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gitignore" value="1" />
-          <entry key="ipynb" value="15" />
-          <entry key="py" value="207" />
+          <entry key="gitignore" value="6" />
+          <entry key="ipynb" value="17" />
+          <entry key="py" value="481" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="IPNB" value="15" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="207" />
+          <entry key="IPNB" value="17" />
+          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="Python" value="481" />
         </counts>
       </usages-collector>
     </session>
@@ -98,18 +121,84 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/performance_matrix.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/tools/tracer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="598">
+              <caret line="27" column="50" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rpn_network/roi_pooling.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1771">
+              <caret line="80" column="19" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train_frcnn.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="431">
+              <caret line="111" column="44" lean-forward="true" selection-start-line="111" selection-start-column="44" selection-end-line="111" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+                <marker date="1588001766091" expanded="true" signature="1346:2335" ph="..." />
+                <marker date="1588001766091" expanded="true" signature="8567:8590" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/inference.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-303">
+              <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/debug.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1104">
-              <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+            <state relative-caret-position="283">
+              <caret line="59" column="32" lean-forward="true" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="69" selection-start-line="69" selection-end-line="69" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_handler/generator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="121" column="15" selection-start-line="121" selection-start-column="15" selection-end-line="121" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/resnet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2327">
+              <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
-                <marker date="1582060190009" expanded="true" signature="590:592" ph="..." />
+                <element signature="e#0#32#0" expanded="true" />
+                <marker date="1588220009470" expanded="true" signature="3682:4165" ph="..." />
               </folding>
             </state>
           </provider>
@@ -118,88 +207,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rpn_network/roi_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="851">
-              <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+            <state relative-caret-position="1127">
+              <caret line="52" column="24" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rpn_network/roi_pooling.py">
+        <entry file="file://$PROJECT_DIR$/data_handler/data_generator_fpn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train_frcnn.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1357">
-              <caret line="72" column="40" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-                <marker date="1582059688888" expanded="true" signature="7309:7498" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_handler/imdb.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1104">
-              <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
-              <folding>
-                <element signature="e#145#168#0" expanded="true" />
-                <marker date="1578779283004" expanded="true" signature="5611:6191" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/network/resnet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="123" column="27" lean-forward="true" selection-start-line="123" selection-start-column="27" selection-end-line="123" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rpn_network/rpn.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="966">
-              <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-                <marker date="1581970427574" expanded="true" signature="842:1076" ph="..." />
-                <marker date="1581970427574" expanded="true" signature="1071:1076" ph="..." />
-                <marker date="1581970427574" expanded="true" signature="1899:1903" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_handler/data_generator_rpn.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="874">
-              <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-                <marker date="1582059587215" expanded="true" signature="310:315" ph="..." />
-                <marker date="1582059587215" expanded="true" signature="575:584" ph="..." />
-                <marker date="1582059587215" expanded="true" signature="1901:1907" ph="..." />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="69" column="54" lean-forward="true" selection-start-line="69" selection-start-column="54" selection-end-line="69" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -215,37 +233,44 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>class</find>
-      <find>shape</find>
-      <find>handle</find>
-      <find>Max</find>
-      <find>max_rois</find>
-      <find>get</find>
-      <find>fea</find>
-      <find>14</find>
-      <find>fast</find>
-      <find>tf</find>
-      <find>FB</find>
-      <find>cx</find>
-      <find>255</find>
-      <find>the ne</find>
-      <find>negtive</find>
-      <find>9</find>
-      <find>3</find>
-      <find>anchor</find>
-      <find>36</find>
-      <find>32</find>
-      <find>strid</find>
-      <find>de</find>
-      <find>draw</find>
-      <find>::</find>
-      <find>std</find>
-      <find>cal_f</find>
-      <find>mesh</find>
+      <find>roi</find>
+      <find>2</find>
       <find>change</find>
-      <find>nms</find>
+      <find>draw</find>
+      <find>mat</find>
+      <find>match</find>
+      <find>deb</find>
+      <find>predict</find>
+      <find>max</find>
+      <find>MAX_ROIS</find>
+      <find>256</find>
+      <find>sig</find>
+      <find>train_on</find>
+      <find>ste</find>
+      <find>(3, 3)</find>
+      <find>+=</find>
+      <find>part1</find>
+      <find>e</find>
+      <find>/</find>
+      <find>step</find>
+      <find>+</find>
+      <find>random</find>
       <find>print</find>
+      <find>std</find>
+      <find>cal</find>
+      <find>nms</find>
+      <find>cal_fm</find>
+      <find>pool</find>
+      <find>handle</find>
+      <find>iou</find>
     </findStrings>
+    <replaceStrings>
+      <replace>uint8</replace>
+      <replace>int16</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -261,28 +286,37 @@
         <option value="$PROJECT_DIR$/data_analyziz/data_generator_rpn.py" />
         <option value="$PROJECT_DIR$/data_analyziz/rpn.py" />
         <option value="$PROJECT_DIR$/data_analyziz/imdb.py" />
-        <option value="$PROJECT_DIR$/data_handler/data_generator.py" />
         <option value="$PROJECT_DIR$/rpn/__init__.py" />
         <option value="$PROJECT_DIR$/rpn/roi_pooling.py" />
         <option value="$PROJECT_DIR$/rpn/roi_helper.py" />
         <option value="$PROJECT_DIR$/rpn/rpn.py" />
         <option value="$PROJECT_DIR$/tools/loss.py" />
         <option value="$PROJECT_DIR$/data_analyziz/draw_box_original.py" />
-        <option value="$PROJECT_DIR$/data_handler/imdb.py" />
-        <option value="$PROJECT_DIR$/rpn_network/test.py" />
         <option value="$PROJECT_DIR$/network/backbone.py" />
-        <option value="$PROJECT_DIR$/network/resnet.py" />
         <option value="$PROJECT_DIR$/tools/tracer.py" />
-        <option value="$PROJECT_DIR$/rpn_network/roi_pooling.py" />
-        <option value="$PROJECT_DIR$/tools/config.py" />
         <option value="$PROJECT_DIR$/tools/performance_matrix.py" />
-        <option value="$PROJECT_DIR$/inference.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/tools/thread_safe.py" />
+        <option value="$PROJECT_DIR$/tools/train_fpn_frcnn.py" />
+        <option value="$PROJECT_DIR$/train_fpn_frcnn.py" />
+        <option value="$PROJECT_DIR$/data_handler/save_tf_record.py" />
+        <option value="$PROJECT_DIR$/data_handler/save_np_image.py" />
         <option value="$PROJECT_DIR$/rpn_network/rpn.py" />
-        <option value="$PROJECT_DIR$/rpn_network/roi_helper.py" />
+        <option value="$PROJECT_DIR$/data_handler/data_generator.py" />
+        <option value="$PROJECT_DIR$/data_handler/imdb.py" />
+        <option value="$PROJECT_DIR$/rpn_network/roi_pooling.py" />
+        <option value="$PROJECT_DIR$/data_handler/generator.py" />
+        <option value="$PROJECT_DIR$/rpn_network/test.py" />
+        <option value="$PROJECT_DIR$/rpn_network/rpn_fpn.py" />
+        <option value="$PROJECT_DIR$/data_handler/data_generator_fpn.py" />
         <option value="$PROJECT_DIR$/data_handler/data_generator_rpn.py" />
+        <option value="$PROJECT_DIR$/rpn_test.py" />
+        <option value="$PROJECT_DIR$/tools/config.py" />
+        <option value="$PROJECT_DIR$/rpn_network/roi_helper.py" />
         <option value="$PROJECT_DIR$/train_frcnn.py" />
         <option value="$PROJECT_DIR$/tools/debug.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/network/resnet.py" />
+        <option value="$PROJECT_DIR$/inference.py" />
       </list>
     </option>
   </component>
@@ -292,9 +326,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1680" />
-    <option name="height" value="969" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -337,47 +371,29 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="capstone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="capstone" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="capstone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="capstone" type="462c0819:PsiDirectoryNode" />
-              <item name="data_handler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="capstone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="capstone" type="462c0819:PsiDirectoryNode" />
-              <item name="network" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="capstone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="capstone" type="462c0819:PsiDirectoryNode" />
-              <item name="rpn_network" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="capstone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="capstone" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
               <item name="capstone" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Remote Python 3.6.4rc1 (sftp://zhou2494@volta.cs.uwlax.edu:22/Network/Servers/lab.cs.uwlax.edu/nfs-homes/zhou2494/python3.6/bin/python3) &gt;" type="70bed36:NamedLibraryElementNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -389,15 +405,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data_analyziz" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/tools" />
       <recent name="$PROJECT_DIR$/data_handler" />
       <recent name="$PROJECT_DIR$/rpn" />
       <recent name="$PROJECT_DIR$/rpn/.ipynb_checkpoints" />
-      <recent name="$PROJECT_DIR$/network" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/data_analyziz" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -563,9 +579,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2954823" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13369964" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -579,16 +595,16 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50061053" side_tool="true" weight="0.32959184" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4993895" visible="true" weight="0.32959184" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4993895" weight="0.32959184" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32959184" />
-      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.4993895" weight="0.29489797" />
+      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.4993895" visible="true" weight="0.29387754" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="aiXcoder" order="3" />
       <window_info anchor="right" id="Remote Host" order="4" />
       <window_info anchor="right" id="SciView" order="5" weight="0.32967034" />
-      <window_info anchor="right" id="R Graphics" order="6" />
+      <window_info anchor="right" id="R Graphics" order="6" weight="0.32967034" />
       <window_info anchor="right" id="R Packages" order="7" weight="0.32967034" />
       <window_info anchor="right" id="Database" order="8" />
     </layout>
@@ -627,67 +643,22 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train_frcnn.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/network/resnet.py</url>
+          <line>88</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/keras/backend/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/keras/utils/conv_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="104" column="9" lean-forward="true" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_analyziz/train_net.py" />
-    <entry file="file://$PROJECT_DIR$/data_analyziz/test.py" />
-    <entry file="file://$PROJECT_DIR$/data_analyziz/rpn_loss.py" />
-    <entry file="file://$PROJECT_DIR$/rpn_network/.ipynb_checkpoints/anchor.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpn/.ipynb_checkpoints/rpn_loss-checkpoint.ipynb" />
-    <entry file="file://$PROJECT_DIR$/rpn_network/.ipynb_checkpoints/anchor-checkpoint.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/keras/engine/base_layer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="922" column="19" selection-start-line="922" selection-start-column="19" selection-end-line="922" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/ops/resource_variable_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="944" column="58" lean-forward="true" selection-start-line="944" selection-start-column="58" selection-end-line="944" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/ops/math_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28014">
-          <caret line="1247" column="18" selection-start-line="1247" selection-start-column="18" selection-end-line="1247" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/keras/engine/training_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4048">
-          <caret line="188" column="30" selection-start-line="188" selection-start-column="30" selection-end-line="188" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/loss.py" />
-    <entry file="file://$PROJECT_DIR$/data_analyziz/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_handler/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -737,24 +708,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/ops/nn_impl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="178" column="59" lean-forward="true" selection-start-line="178" selection-start-column="59" selection-end-line="178" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/keras/layers/convolutional.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="870" column="16" selection-start-line="870" selection-start-column="6" selection-end-line="870" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/keras/backend.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12579">
-          <caret line="3502" column="4" selection-start-line="3502" selection-start-column="4" selection-end-line="3502" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -772,30 +729,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_analyziz/data_start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/keras/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/keras/engine/training.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="110" column="27" lean-forward="true" selection-start-line="110" selection-start-column="27" selection-end-line="110" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -806,20 +746,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/backbone.py">
+    <entry file="file://$PROJECT_DIR$/data_analyziz/data_start.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="120" lean-forward="true" selection-start-line="8" selection-start-column="120" selection-end-line="8" selection-end-column="120" />
+        <state relative-caret-position="46">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_handler/data_generator.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow_core/python/keras/api/_v2/keras/optimizers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/314116850/Desktop/capstone/network/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2139">
-          <caret line="98" column="79" selection-start-line="98" selection-start-column="77" selection-end-line="98" selection-end-column="79" />
+        <state relative-caret-position="-3">
+          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/framework/test_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16836">
+          <caret line="746" column="21" selection-start-line="746" selection-start-column="21" selection-end-line="746" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_fpn_frcnn.py" />
     <entry file="file://$PROJECT_DIR$/rpn_network/anchor.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -827,122 +778,212 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rpn_network/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="14" column="68" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/tracer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inference.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1679">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1403">
-          <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/performance_matrix.py">
+    <entry file="file://$PROJECT_DIR$/network/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/debug.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/h5py/_hl/group.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1582060190009" expanded="true" signature="590:592" ph="..." />
-          </folding>
+        <state relative-caret-position="568">
+          <caret line="82" column="16" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rpn_network/roi_helper.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/-1856128509/network/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+        <state relative-caret-position="238">
+          <caret line="83" column="59" selection-start-line="83" selection-start-column="58" selection-end-line="83" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rpn_network/roi_pooling.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/data_analyziz/kmeans.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_frcnn.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/keras/backend.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1357">
-          <caret line="72" column="40" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-            <marker date="1582059688888" expanded="true" signature="7309:7498" ph="..." />
-          </folding>
+        <state relative-caret-position="80063">
+          <caret line="3522" column="43" selection-start-line="3522" selection-start-column="43" selection-end-line="3522" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_handler/imdb.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/ops/nn_impl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
-          <folding>
-            <element signature="e#145#168#0" expanded="true" />
-            <marker date="1578779283004" expanded="true" signature="5611:6191" ph="..." />
-          </folding>
+        <state relative-caret-position="3680">
+          <caret line="181" column="20" selection-start-line="181" selection-start-column="20" selection-end-line="181" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rpn_network/rpn.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/ops/gen_math_ops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="966">
-          <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1581970427574" expanded="true" signature="842:1076" ph="..." />
-            <marker date="1581970427574" expanded="true" signature="1071:1076" ph="..." />
-            <marker date="1581970427574" expanded="true" signature="1899:1903" ph="..." />
-          </folding>
+        <state relative-caret-position="91839">
+          <caret line="4010" column="4" selection-start-line="4010" selection-start-column="4" selection-end-line="4010" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_handler/data_generator_rpn.py">
+    <entry file="file://$PROJECT_DIR$/data_handler/save_np_image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-            <marker date="1582059587215" expanded="true" signature="310:315" ph="..." />
-            <marker date="1582059587215" expanded="true" signature="575:584" ph="..." />
-            <marker date="1582059587215" expanded="true" signature="1901:1907" ph="..." />
-          </folding>
+        <state relative-caret-position="2369">
+          <caret line="112" column="39" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/resnet.py">
+    <entry file="file://$PROJECT_DIR$/network/backbone.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="123" column="27" lean-forward="true" selection-start-line="123" selection-start-column="27" selection-end-line="123" selection-end-column="27" />
+        <state relative-caret-position="184">
+          <caret line="8" column="120" selection-start-line="8" selection-start-column="120" selection-end-line="8" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_handler/imdb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/remote_sources/1280680191/634831724/tensorflow/python/keras/engine/training.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="1597" column="6" selection-start-line="1597" selection-start-column="6" selection-end-line="1597" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_handler/data_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpn_network/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1403">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_handler/data_generator_rpn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="46" column="53" lean-forward="true" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpn_network/rpn_fpn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpn_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpn_network/rpn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="21" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/performance_matrix.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/thread_safe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/tracer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="27" column="50" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpn_network/roi_pooling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1771">
+          <caret line="80" column="19" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="69" selection-start-line="69" selection-end-line="69" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_frcnn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="111" column="44" lean-forward="true" selection-start-line="111" selection-start-column="44" selection-end-line="111" selection-end-column="44" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
+            <marker date="1588001766091" expanded="true" signature="1346:2335" ph="..." />
+            <marker date="1588001766091" expanded="true" signature="8567:8590" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/debug.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="59" column="32" lean-forward="true" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpn_network/roi_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="52" column="24" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/resnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2327">
+          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <marker date="1588220009470" expanded="true" signature="3682:4165" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_handler/data_generator_fpn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="69" column="54" lean-forward="true" selection-start-line="69" selection-start-column="54" selection-end-line="69" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_handler/generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="121" column="15" selection-start-line="121" selection-start-column="15" selection-end-line="121" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-303">
+          <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>

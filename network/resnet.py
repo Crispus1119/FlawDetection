@@ -6,15 +6,8 @@ import data_handler.imdb as imdb
 from tools.config import cfg
 from data_handler.data_generator import data_generator
 from rpn_network.roi_pooling import RoiPooling
-from tensorflow.keras import backend
 from tensorflow.keras.layers import TimeDistributed,Conv2D
-
-################### restrict memory
-# gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.7)
-# config = tf.ConfigProto()
-# config.gpu_options.allow_growth = True
-# config.gpu_options.per_process_gpu_memory_fraction = 0.4
-# backend.set_session(tf.Session(config=config))
+from tensorflow.keras import regularizers
 
 class resnet():
     def __init__(self):
@@ -23,115 +16,112 @@ class resnet():
         self.height = cfg.TRAIN.RESIZE_ROIDB
         self.cls = cfg.NUM_CLASSES
 
-    def resnet34(self):
-        Input=keras.layers.Input(shape=(self.width,self.height,self.channal))
-        x= keras.layers.ZeroPadding2D(padding=(3,3))(Input)
-        # 230*230*3
-        #conv1
-        x = self.conv2d_bn(x,64,(7,7),(2,2),'valid')
-        #112*112
-        #conv2
-        x = keras.layers.MaxPooling2D(pool_size=(3, 3), strides=(2, 2), padding='same')(x)
-        #56*56
-        x = self.identify_block(x,64,(3,3),(1,1))(x)
-        x = self.identify_block(x, 64, (3, 3), (1, 1))(x)
-        x = self.identify_block(x, 64, (3, 3), (1, 1))(x)
-        #56*56
-        #conv3
-        x= self.identify_block(x,128,(3,3),(2,2),True)
-        x = self.identify_block(x, 128, (3, 3))(x)
-        x = self.identify_block(x, 128, (3, 3))(x)
-        x = self.identify_block(x, 128, (3, 3))(x)
-        #28*28
-        #conv4
-        x= self.identify_block(x,256,(3,3),(2,2),True)
-        x = self.identify_block(x, 256, (3, 3))(x)
-        x = self.identify_block(x, 256, (3, 3))(x)
-        x = self.identify_block(x, 256, (3, 3))(x)
-        x = self.identify_block(x, 256, (3, 3))(x)
-        x = self.identify_block(x, 256, (3, 3))(x)
-        #14*14
-        #conv5
-        x = self.identify_block(x, 512, (3, 3), (2, 2), True)
-        x = self.identify_block(x, 512, (3, 3))(x)
-        x = self.identify_block(x, 512, (3, 3))(x)
-        #7*7
-        x=keras.layers.AveragePooling2D(pool_size=(7,7))(x)
-        x=keras.layers.Flatten()(x)
-        x=keras.layers.Dense(self.cls,activation='softmax')(x)
-        model=keras.models.Model(inputs=Input, outputs=x)
-        return model
 
-    def resnet_50(self,is_share=False,inpt=None):
+    def resnet_50(self,is_share=False,inpt=None,is_FPN=False):
         # 224*224*3
         if not is_share:
            inpt = keras.layers.Input(shape=(self.width, self.height, self.channal))
-        # 230*230*3
-        x = keras.layers.ZeroPadding2D((3, 3))(inpt)
-        # 230-7=223/2+1=(112,112,3) If It's not divisible, rounded down
-        x = self.conv2d_bn(x,64,(7, 7), (2, 2), padding='valid')
-        # (56,56,64)
-        x = keras.layers.MaxPooling2D(pool_size=(3, 3), strides=(2, 2), padding='same')(x)
-        # conv2_x(56,56,256)
+        # 224*224*3
+        x = self.conv2d_bn(inpt,64,(7, 7), (2, 2))
+        # (112,112,64)
+        x = keras.layers.MaxPooling2D(pool_size=(3, 3), strides=(2, 2),padding='same')(x)
+        # conv2_x(56,56,64)
         x = self.bottleneck_Block(x, [64, 64, 256],strides=(1, 1), with_shortcut=True)
         x = self.bottleneck_Block(x, [64, 64, 256])
         x = self.bottleneck_Block(x, [64, 64, 256])
-
-        # conv3_x(28*28*512)
+        # (56, 56, 256)
         x = self.bottleneck_Block(x, [128, 128, 512], strides=(2, 2), with_shortcut=True)
         x = self.bottleneck_Block(x, [128, 128, 512])
         x = self.bottleneck_Block(x, [128, 128, 512])
-        x = self.bottleneck_Block(x, [128, 128, 512])
-
-        # conv4_x(14*14*1024
-        x = self.bottleneck_Block(x,[256, 256, 1024], strides=(2, 2), with_shortcut=True)
+        x_large = self.bottleneck_Block(x, [128, 128, 512])
+        # conv3_x(28*28*512)
+        x = self.bottleneck_Block(x_large,[256, 256, 1024], strides=(2, 2), with_shortcut=True)
         x = self.bottleneck_Block(x, [256, 256, 1024])
         x = self.bottleneck_Block(x, [256, 256, 1024])
         x = self.bottleneck_Block(x, [256, 256, 1024])
-        x = self.bottleneck_Block(x, [256, 256, 1024])
+        x_mid = self.bottleneck_Block(x, [256, 256, 1024])
+        # conv4_x(14*14*1024)
+        x = self.bottleneck_Block(x_mid, [512, 512, 2048], strides=(2, 2), with_shortcut=True)
+        x = self.bottleneck_Block(x, [512, 512, 2048])
+        x_small = self.bottleneck_Block(x, [512, 512, 2048])
+        # conv4_x(7*7*2048)
+        if is_FPN:
+            return x_large,x_mid,x_small
         if(is_share):
-            return x
-        # else:
-        #     # conv5_x(7*7*2048)
-        #     x = self.bottleneck_Block(x,[512, 512, 2048], strides=(2, 2), with_shortcut=True)
-        #     x = self.bottleneck_Block(x,[512, 512, 2048])
-        #     x = self.bottleneck_Block(x,[512, 512, 2048])
-        #
-        #     x = keras.layers.AveragePooling2D(pool_size=(7, 7))(x)
-        #     x = keras.layers.Flatten()(x)
-        #     x = keras.layers.Dense(self.cls, activation='softmax')(x)
-        #     model = keras.models.Model(inputs=inpt, outputs=x)
-        #     return model
+            return x_small
+        else:
+            # conv5_x(7*7*2048)
+            x = self.bottleneck_Block(x,[512, 512, 2048], strides=(2, 2), with_shortcut=True)
+            x = self.bottleneck_Block(x,[512, 512, 2048])
+            x = self.bottleneck_Block(x,[512, 512, 2048])
 
-    def rpn_net(self,x):
-        rpn = keras.layers.Conv2D(filters=512, kernel_size=(3, 3), padding='same', activation='relu', name="rpn_net")(x)
-        x_class = keras.layers.Conv2D(2*cfg.TRAIN.ANCHOR_NUM, kernel_size=(1, 1), activation='sigmoid',
-                                      name="rpn_class")(rpn)
-        x_loc = keras.layers.Conv2D(4 * cfg.TRAIN.ANCHOR_NUM, kernel_size=(1, 1), activation="linear", name="rpn_reg")(
-            rpn)
+            x = keras.layers.AveragePooling2D(pool_size=(7, 7))(x)
+            x = keras.layers.Flatten()(x)
+            x = keras.layers.Dense(self.cls, activation='softmax',kernel_regularizer=regularizers.l2(0.0001))(x)
+            model = keras.models.Model(inputs=inpt, outputs=x)
+            return model
+
+    def fpn_fm(self,x_large,x_mid,x_small):
+        """
+        The method to generate the feature map to predict.
+        """
+        xsmall_reduce=keras.layers.Conv2D(filters=256,kernel_size=(1,1),activation='relu',kernel_regularizer=regularizers.l2(0.0001))(x_small)
+        xmid_reduce = keras.layers.Conv2D(filters=256, kernel_size=(1, 1), activation='relu',kernel_regularizer=regularizers.l2(0.0001))(x_mid)
+        xlarge_reduce=keras.layers.Conv2D(filters=256,kernel_size=(1,1),activation='relu',kernel_regularizer=regularizers.l2(0.0001))(x_large)
+        xsmall_up=keras.layers.UpSampling2D((2,2),interpolation='nearest')(xsmall_reduce)
+        mid_predict=keras.layers.Add()([xmid_reduce,xsmall_up])
+        xmid_up=keras.layers.UpSampling2D((2,2),interpolation='nearest')(mid_predict)
+        large_predict=keras.layers.Add()([xlarge_reduce,xmid_up])
+        return xsmall_reduce,mid_predict,large_predict
+
+    def fpn_output(self,input_layer):
+        x_large, x_mid, x_small = self.resnet_50(is_share=True, inpt=input_layer, is_FPN=True)
+        small_predict, mid_predict, large_predict = self.fpn_fm(x_large, x_mid, x_small)
+        xclass_small, xloc_small = self.rpn_net(small_predict, "small")
+        xclass_mid, xloc_mid = self.rpn_net(mid_predict, "mid")
+        xclass_large, xloc_large = self.rpn_net(large_predict, "large")
+        return xclass_large,xloc_large,xclass_mid, xloc_mid,xclass_small, xloc_small
+
+    def fpn_net(self,inputLayor=None):
+        input_layer = keras.layers.Input(shape=(None, None, 3))
+        if inputLayor is not None:
+            input_layer=inputLayor
+        xclass_large, xloc_large, xclass_mid, xloc_mid, xclass_small, xloc_small=self.fpn_output(input_layer)
+        rpn_model=keras.models.Model(inputs=input_layer,outputs=[xclass_small,xloc_small,xclass_mid,xloc_mid,xclass_large,xloc_large])
+        for layer in rpn_model.layers:
+            layer._name = layer.name + "_base"
+        # rpn_model.summary()
+        return rpn_model
+
+    def rpn_net(self,x,extra_name):
+        rpn = keras.layers.Conv2D(filters=256, kernel_size=(3, 3), padding='same', activation='relu', name="rpn_net"+extra_name)(x)
+        x_class = keras.layers.Conv2D(2*cfg.TRAIN.ANCHOR_NUM, kernel_size=(1, 1), activation='sigmoid',name="rpn_class"+extra_name)(rpn)
+        x_loc = keras.layers.Conv2D(4 * cfg.TRAIN.ANCHOR_NUM, kernel_size=(1, 1), activation="linear",name="rpn_reg"+extra_name)(rpn)
         return x_class,x_loc
 
 
-    def cal_fm_size(self, width, height):
+    def cal_fm_size(self, width, height,isFPN=False):
         """
         The method to calculate feature map size.
         :param width: the origin image width
         :param height: the origin image height
         :return: the feature map size.
         """
-        def calculator(length):
-            # zero padding 3
-            length=length+3
+        def calculator(length,isFPN=False):
             stride=2
-            filter_size=[7,3,1,1]
+            filter_size=[7,3,1,1,1]
+            result=[]
             for i in filter_size:
                 if i==3:
-                    # pooling layer is round to up value
-                    length =math.ceil((length - i + stride)/stride)
+                    length = math.ceil(length//stride)
                 else:
-                    length = (length - i + stride) // stride
-            return length
-        return  calculator(width),calculator(height)
+                   length = length //stride
+                if i==1:
+                    result.append(length)
+            if isFPN:
+                return result
+            else:return length
+        return  calculator(width,isFPN),calculator(height,isFPN)
 
     def bottleneck_Block(self,input,filters,strides=(1,1),with_shortcut=False):
         k1, k2, k3 = filters
@@ -154,28 +144,28 @@ class resnet():
             shortcut=self.conv2d_bn(inpt,filters,kernel_size,stride)
             x= keras.layers.add([x,shortcut])
             return x
-
         return keras.layers.add([x,inpt])
 
     def conv2d_bn(self,x,filter,kennal_size,stride=(1,1) ,padding='same'):
-        x = keras.layers.Conv2D(filters=filter,kernel_size=kennal_size,strides=stride,padding=padding,activation='relu')(x)
+        x = keras.layers.Conv2D(filters=filter,kernel_size=kennal_size,strides=stride,padding=padding,activation='relu',kernel_regularizer=regularizers.l2(0.0001))(x)
         # axis is point to the channel value
         x= keras.layers.BatchNormalization(axis=3)(x)
         return x
 
-    def fast_rcnn(self,feature_map,input_rois,):
+    def fast_rcnn(self,feature_map,input_rois,rpn_stride):
         class_num=cfg.NUM_CLASSES
         # roi_pooling class instance is callable because of __call__.
         # roi_output shape is [1,None,14,14,1024]
+        input_rois=input_rois/rpn_stride
         roi_output=RoiPooling()([feature_map,input_rois])
         x=TimeDistributed(keras.layers.AveragePooling2D(7,7))(roi_output)
         x=TimeDistributed(keras.layers.Flatten())(x)
-        x=TimeDistributed(keras.layers.Dense(4096, activation='relu'))(x)
+        x=TimeDistributed(keras.layers.Dense(4096, activation='relu',kernel_regularizer=regularizers.l2(0.0001)))(x)
         x=TimeDistributed(keras.layers.Dropout(0.5))(x)
-        x = TimeDistributed(keras.layers.Dense(4096, activation='relu'))(x)
+        x = TimeDistributed(keras.layers.Dense(4096, activation='relu',kernel_regularizer=regularizers.l2(0.0001)))(x)
         x = TimeDistributed(keras.layers.Dropout(0.5))(x)
-        out_class = TimeDistributed(keras.layers.Dense(class_num, activation='softmax', kernel_initializer='zero'))(x)
-        out_reg=TimeDistributed(keras.layers.Dense(4 * (class_num-1), activation='linear', kernel_initializer='zero'))(x)
+        out_class = TimeDistributed(keras.layers.Dense(class_num, activation='softmax', kernel_initializer='zero',kernel_regularizer=regularizers.l2(0.0001)))(x)
+        out_reg=TimeDistributed(keras.layers.Dense(4 * (class_num-1), activation='linear', kernel_initializer='zero',kernel_regularizer=regularizers.l2(0.0001)))(x)
         return [out_class,out_reg]
 
 

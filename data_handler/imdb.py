@@ -67,6 +67,7 @@ class imdb(object):
         print("writing file to :   " + cache_file)
         # roidb is from annotation information.
         roidb = [self.load_pascal_annotation(index) for index in self.image_index]
+        self.make_class_blance(roidb)
         with open(cache_file, 'wb') as cache:
             # record the roidb information into pkl file to reduce time.
             pickle.dump(roidb, cache, pickle.HIGHEST_PROTOCOL)
@@ -94,7 +95,7 @@ class imdb(object):
         area = (x2 - x1) * (y2 - y1)
         gt_class[cls_num] = 1
         box[:] = [x1, y1, x2, y2]
-        return {'box': box, 'index': index, 'class': gt_class, 'area': area}
+        return {'box': box, 'index': index, 'class': gt_class, 'area': area,"flipped":False}
 
     def load_image_index(self):
         """
@@ -110,7 +111,7 @@ class imdb(object):
                 self._image_amount[index] += 1
         return image_index
 
-    def make_class_blance(self):
+    def make_class_blance(self,roidb):
         """""
         The method to make each class have same number of image'
         It is simmilar setter of roidb
@@ -119,9 +120,9 @@ class imdb(object):
         for i in range(len(self._class)):
             if self._image_amount[i] < max:
                 adding_num = max - self._image_amount[i]
-                self.random_add_roidb(self._class[i], adding_num)
+                self.random_add_roidb(self._class[i], adding_num,roidb)
 
-    def random_add_roidb(self, enhance_class, adding_num):
+    def random_add_roidb(self, enhance_class, adding_num,roidb):
         """""
            The method to random adding image to make each class's image amount balance.
            """
@@ -136,12 +137,11 @@ class imdb(object):
         while len(image_choice) < adding_num:
             image_choice.extend(random.sample(record, 30))
         for a in image_choice:
-            # return {'box': box, 'index': index, 'class': gt_class, 'area': area}
-            dic = {'box': self._roidb[a].get('box'), 'index': self._roidb[a].get('index'),
-                   'class': self._roidb[a].get('class'), 'area': self._roidb[a].get('area')}
-            self._roidb.append(dic)
+            dic = {'box': roidb[a].get('box'), 'index': roidb[a].get('index'),
+                   'class':roidb[a].get('class'), 'area': roidb[a].get('area'),"flipped":True}
+            roidb.append(dic)
             self._image_amount[self._class.index(enhance_class)] += 1
-            self.image_index.append(self.roidb[a].get('index'))
+            self.image_index.append(roidb[a].get('index'))
         assert len(self.image_index)==np.sum(self._image_amount),"the image index amount and image amount is not similar "
 
 
